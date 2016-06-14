@@ -55,9 +55,8 @@ public class FacebookFragment extends Fragment implements View.OnClickListener {
     private int counter = 0;
     private Button btnSendPost;
     private LikeView likeView;
-    CallbackManager callbackManager;
-    ShareDialog shareDialog;
-
+    private CallbackManager callbackManager;
+    private ShareDialog shareDialog;
 
     // Callback
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
@@ -139,47 +138,14 @@ public class FacebookFragment extends Fragment implements View.OnClickListener {
         shareButton = (ShareButton) view.findViewById(R.id.share_btn);
         shareButton.setOnClickListener(this);
 
-        // For giving like to the page providede by url
+        // For giving like to the page provided by url
         likeView.setObjectIdAndType("https://www.facebook.com/FacebookDevelopers",
                 LikeView.ObjectType.PAGE);
 
         //for sharing something on wall
         sharePostOnWall();
-       // shareMediaOnWall();
-
-
-
     }
 
-  /*  private void shareMediaOnWall() {
-        Uri photo1= Uri.parse("http://science-all.com/images/wallpapers/technology-images/technology-images-5.png");
-        Uri photo2= Uri.parse("http://science-all.com/images/wallpapers/technology-images/technology-images-2.jpg");
-        Uri photo3= Uri.parse("http://www.linkedstrategies.com/wp-content/uploads/2010/10/technology-the-basic-right-of-all-people-5.jpg");
-
-
-        SharePhoto sharePhoto1 = new SharePhoto.Builder()
-                .setBitmap()
-        .build();
-        SharePhoto sharePhoto2 = new SharePhoto.Builder()
-                .setBitmap(...)
-        .build();
-        ShareVideo shareVideo1 = new ShareVideo.Builder()
-                .setLocalUrl(...)
-        .build();
-        ShareVideo shareVideo2 = new ShareVideo.Builder()
-                .setLocalUrl(...)
-        .build();
-
-        ShareContent shareContent = new ShareMediaContent.Builder()
-                .addMedium(sharePhoto1)
-                .addMedium(sharePhoto2)
-                .addMedium(shareVideo1)
-                .addMedium(shareVideo2)
-                .build();
-
-        ShareDialog shareDialog = new ShareDialog(...);
-        shareDialog.show(shareContent, ShareDialog.Mode.AUTOMATIC);
-    }*/
     private void sharePostOnWall() {
         String fileName = "YourImage.png";
         String completePath = Environment.getExternalStorageDirectory() + "/" + fileName;
@@ -215,7 +181,6 @@ public class FacebookFragment extends Fragment implements View.OnClickListener {
                     .setContentTitle("Hello Facebook")
                     .setContentDescription(
                             "The 'Hello Facebook' sample  showcases simple Facebook integration")
-
                     .setContentUrl(Uri.parse("http://blogs-images.forbes.com/joshbersin/files/2014/10/t.jpg"))
                     .setImageUrl(Uri.parse("http://blogs-images.forbes.com/tykiisel/files/2013/03/14594978_WelcomeToTheFuture_03112013Final1.jpg"))
                     .build();
@@ -224,9 +189,6 @@ public class FacebookFragment extends Fragment implements View.OnClickListener {
         }
 
     }
-
-
-
 
     private void displayMessage(Profile profile){
         Utils.showVerboesLog(TAG, "Inside displayMessage()");
@@ -244,7 +206,7 @@ public class FacebookFragment extends Fragment implements View.OnClickListener {
             Utils.showVerboesLog(TAG, "Profile Pic=" + profilePicUri);
         }
         else{
-            Utils.showVerboesLog(TAG, "Profile is  null=");
+            Utils.showVerboesLog(TAG, "Profile is  null");
         }
 
     }
@@ -280,7 +242,6 @@ public class FacebookFragment extends Fragment implements View.OnClickListener {
                     Utils.showVerboesLog(TAG,"Successfully posted on wall");
                 }
                 break;
-
         }
 
     }
