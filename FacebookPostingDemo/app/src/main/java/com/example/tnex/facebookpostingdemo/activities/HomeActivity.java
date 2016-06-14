@@ -11,6 +11,7 @@ import com.example.tnex.facebookpostingdemo.R;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
+    private int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
