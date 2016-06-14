@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.tnex.facebookpostingdemo.R;
 
 public class HomeActivity extends AppCompatActivity {
+    private static final String TAG = "HomeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
